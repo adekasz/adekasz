@@ -40,6 +40,23 @@ npm run build  # Compile to dist/
 npm start      # Run compiled service
 ```
 
+## Create a pull request
+
+The repository includes a dependency-free `make-pr` command that delegates PR creation to the authenticated [GitHub CLI](https://cli.github.com/). It refuses to run when the working tree has uncommitted changes, so the PR always matches a commit.
+
+```bash
+# First authenticate once, if needed.
+gh auth login
+
+# Create a PR using inline Markdown body text.
+npm run make-pr -- --title "Add WhatsApp AI agent" --body "## Summary\n- Adds the webhook service."
+
+# Or keep a longer body in a file and choose the base branch.
+npm run make-pr -- --title "Add WhatsApp AI agent" --body-file PR.md --base main
+```
+
+Pass `--draft` to create a draft PR, or `--help` to see all options. The command uses `gh pr create`, so GitHub CLI authentication and a configured Git remote are still required.
+
 ## Production notes
 
 - Set a long, unique `WHATSAPP_VERIFY_TOKEN`; keep all tokens in secret storage.

@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "build": "tsc",
     "check": "tsc --noEmit",
-    "test": "tsx --test test/**/*.test.ts"
+    "test": "tsx --test test/**/*.test.ts && node --test test/**/*.test.mjs",
+    "make-pr": "node scripts/make-pr.mjs"
   },
   "dependencies": { "dotenv": "^16.6.1", "express": "^5.1.0", "openai": "^5.19.1" },
   "devDependencies": { "@types/express": "^5.0.3", "@types/node": "^22.15.3", "tsx": "^4.19.4", "typescript": "^5.8.3" }
