@@ -51,11 +51,11 @@ gh auth login
 # Create a PR using inline Markdown body text.
 npm run make-pr -- --title "Add WhatsApp AI agent" --body "## Summary\n- Adds the webhook service."
 
-# Or keep a longer body in a file and choose the base branch.
-npm run make-pr -- --title "Add WhatsApp AI agent" --body-file PR.md --base main
+# Or keep a longer body in a file, choose the base branch, and target a repo explicitly.
+npm run make-pr -- --title "Add WhatsApp AI agent" --body-file PR.md --base main --repo owner/repository
 ```
 
-Pass `--draft` to create a draft PR, or `--help` to see all options. The command uses `gh pr create`, so GitHub CLI authentication and a configured Git remote are still required.
+Pass `--draft` to create a draft PR, `--dry-run` to inspect the generated `gh` command, or `--help` to see all options. The command checks for an authenticated GitHub CLI and an `origin` remote before creating a PR. If this checkout has no remote, provide `--repo owner/repository` instead.
 
 ## Production notes
 
